@@ -17,17 +17,15 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
 
 
 		<!-- spring 4.3.3.RELEASE所有的包都引进来了共20个jar -->
@@ -144,15 +142,11 @@
 			<version>5.3.0.Alpha1</version>
 		</dependency>
 		<!-- 添加json解析的库 -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.5.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.5.2</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.7</version>
 		</dependency>
 		<!--mybatis相关的包 -->
 		<dependency>
@@ -232,6 +226,15 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
+		
+		<!-- 其他 -->
+		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
