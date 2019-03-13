@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
 	<!-- scan the package and the sub package -->
-	<context:component-scan base-package="com.wx.manage.web.controller" />
+	<context:component-scan base-package="com.hao.app.wx" />
 
 	<!-- don't handle the static resource -->
 	<mvc:default-servlet-handler />
@@ -19,16 +19,21 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/" />
 		<!-- 后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	
 
 	<!-- interceptor setting -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/mvc/**" />
-			<bean class="com.wx.manage.web.interceptor.MyInterceptor"></bean>
+			<mvc:mapping path="/*.do" />
+			<mvc:exclude-mapping path="/login.do" />
+			<mvc:exclude-mapping path="/initLogin.do" />
+			<mvc:exclude-mapping path="/quitSystem.do" />
+			<bean class="com.hao.app.wx.manage.web.interceptor.LogInInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 
