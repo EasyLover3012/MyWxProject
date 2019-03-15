@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hao.app.wx.manage.mapper.SysPrivilegeMapper">
+  
+  <resultMap id="BaseResultMap" type="com.hao.app.wx.manage.pojo.SysPrivilege">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+ 
+  <select id="queryAllPrivilege" resultMap="BaseResultMap">
+    select id, menu_id, name, url from sys_privilege
+  </select>
+  
+  <select id="queryByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, menu_id, name, url from sys_privilege where id = ${id} 
+  </select>
+  
+  <select id="queryPrivilegeByRoleId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select p.id, p.menu_id, p.name, p.url
+    from sys_role_privilege rp
+    left join sys_privilege p on p.id = rp.privilege_id
+    where rp.role_id = ${roleId} 
+    order by p.id
+  </select>
+  
+  <select id="queryPrivilegeURLByRoleId" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select p.url
+    from sys_role_privilege rp
+    left join sys_privilege p on p.id = rp.privilege_id
+    where rp.role_id = ${roleId} 
+  </select>
+  
+  <select id="queryPrivilegeIdByRoleId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select p.id
+    from sys_role_privilege rp
+    left join sys_privilege p on p.id = rp.privilege_id
+    where rp.role_id = ${roleId} 
+  </select>
+  
+  <select id="queryPrivilegeByMenuId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, menu_id, name, url 
+    from sys_privilege
+    where menu_id = ${menuId} 
+  </select>
+  
+  <delete id="deletePrivilegeByMenuId" parameterType="java.lang.Integer">
+  	delete from sys_privilege where menu_id = ${menuId} 
+  </delete>
+  
+  <update id="updatePrivilege" parameterType="com.hao.app.wx.manage.pojo.SysPrivilege">
+    update sys_privilege
+    set
+    menu_id = #{menuId,jdbcType=INTEGER},
+    name = #{name,jdbcType=VARCHAR},
+    url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <insert id="insertPrivilege" parameterType="com.hao.app.wx.manage.pojo.SysPrivilege">
+    insert into sys_privilege (
+    	menu_id, name, url)
+    values (
+    	#{menuId,jdbcType=INTEGER}, 
+      	#{name,jdbcType=VARCHAR}, 
+      	#{url,jdbcType=VARCHAR})
+  </insert>
+  
+  <delete id="deletePrivilege" parameterType="java.lang.Integer">
+  	delete from sys_privilege where id = #{id} 
+  </delete>
+  
+  
+
+  
+</mapper>

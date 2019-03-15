@@ -1,4 +1,4 @@
-package com.hao.app.wx.commons.entity.result;
+package com.hao.app.wx.manage.commons.entity.result;
 
 import java.io.Serializable;
 

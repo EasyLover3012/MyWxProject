@@ -1,4 +1,4 @@
-package com.hao.app.wx.commons.enums;
+package com.hao.app.wx.manage.commons.enums;
 
 public enum ResultCodeEnum {
 	SERVER_ERROR(500, "服务器内部错误"),

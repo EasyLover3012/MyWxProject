@@ -236,28 +236,18 @@
 		
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<profiles>
+		<profile>
+			  <modules>
+			      <module>wx-manage-common</module>
+			    <module>wx-manage-pojo</module>
+			    <module>wx-manage-mapper</module>
+			    <module>wx-manage-service</module>
+			    <module>wx-manage-web</module>
+			  </modules>
+		</profile>
+	</profiles>
 
-
-
-  <modules>
-      <module>wx-manage-common</module>
-    <module>wx-manage-pojo</module>
-    <module>wx-manage-mapper</module>
-    <module>wx-manage-service</module>
-    <module>wx-manage-web</module>
-  </modules>
 
   <dependencyManagement>
   	<dependencies>
@@ -290,5 +280,18 @@
   		
   	</dependencies>
   </dependencyManagement>
+  
+  	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

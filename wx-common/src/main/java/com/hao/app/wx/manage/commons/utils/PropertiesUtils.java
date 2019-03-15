@@ -1,4 +1,4 @@
-package com.hao.app.wx.commons.utils;
+package com.hao.app.wx.manage.commons.utils;
 
 import java.util.Properties;
 

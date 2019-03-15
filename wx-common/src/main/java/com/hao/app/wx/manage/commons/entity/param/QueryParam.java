@@ -1,4 +1,4 @@
-package com.hao.app.wx.commons.entity.param;
+package com.hao.app.wx.manage.commons.entity.param;
 
 
 import java.io.Serializable;

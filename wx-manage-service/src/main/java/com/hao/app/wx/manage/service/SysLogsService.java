@@ -1,7 +1,7 @@
 package com.hao.app.wx.manage.service;
 
 
-import com.hao.app.wx.commons.entity.result.JsonResult;
+import com.hao.app.wx.manage.commons.entity.result.JsonResult;
 import com.hao.app.wx.manage.pojo.SysLogs;
 
 

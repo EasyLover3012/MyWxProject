@@ -12,8 +12,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
-import com.hao.app.wx.commons.entity.Constants;
-import com.hao.app.wx.commons.entity.result.JsonResultAjax;
+import com.hao.app.wx.manage.commons.entity.Constants;
+import com.hao.app.wx.manage.commons.entity.result.JsonResultAjax;
 import com.hao.app.wx.manage.pojo.SysMember;
 
 public class LogInInterceptor implements HandlerInterceptor {

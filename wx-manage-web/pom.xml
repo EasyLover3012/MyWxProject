@@ -9,7 +9,7 @@
   </parent>
   <artifactId>wx-manage-web</artifactId>
   <packaging>war</packaging>
-  <name>wx-manage-web Maven Webapp</name>
+  <name>wx-manage-web</name>
   <url>http://maven.apache.org</url>
 
   

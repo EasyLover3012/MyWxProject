@@ -9,8 +9,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
-import com.hao.app.wx.commons.entity.Constants;
-import com.hao.app.wx.commons.enums.ResultCodeEnum;
+import com.hao.app.wx.manage.commons.entity.Constants;
+import com.hao.app.wx.manage.commons.enums.ResultCodeEnum;
 import com.hao.app.wx.manage.pojo.SysMember;
 import com.hao.app.wx.manage.service.SysLogsService;
 

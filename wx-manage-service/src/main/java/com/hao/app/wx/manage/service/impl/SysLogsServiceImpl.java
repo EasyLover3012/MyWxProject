@@ -2,7 +2,7 @@ package com.hao.app.wx.manage.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.hao.app.wx.commons.entity.result.JsonResult;
+import com.hao.app.wx.manage.commons.entity.result.JsonResult;
 import com.hao.app.wx.manage.pojo.SysLogs;
 import com.hao.app.wx.manage.service.SysLogsService;
 

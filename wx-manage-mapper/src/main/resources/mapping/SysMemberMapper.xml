@@ -49,7 +49,7 @@
   </select>
   
  
-  <select id="queryMembersPageList" parameterType="com.hao.app.wx.commons.entity.param.QueryParam" resultMap="BaseResultMap">
+  <select id="queryMembersPageList" parameterType="com.hao.app.wx.manage.commons.entity.param.QueryParam" resultMap="BaseResultMap">
     select 
     	m.id, m.name, m.imgs, m.valid, m.pwd, m.show_name, m.role_id, m.phone, m.email,
     	r.name as roleName,r.intro as roleIntor

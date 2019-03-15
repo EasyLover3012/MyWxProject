@@ -1,4 +1,4 @@
-package com.hao.app.wx.commons.entity;
+package com.hao.app.wx.manage.commons.entity;
 
 public class Constants {
 	private Constants() {

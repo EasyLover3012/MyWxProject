@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.hao.app.wx.commons.entity.param.QueryParam;
+import com.hao.app.wx.manage.commons.entity.param.QueryParam;
 import com.hao.app.wx.manage.pojo.SysMember;
 
 
