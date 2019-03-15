@@ -1,15 +1,12 @@
 package com.hao.app.wx.manage.web;
 
 import java.util.Set;
-
 import javax.servlet.ServletContext;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.ServletContextAware;
-
 import com.hao.app.wx.manage.commons.entity.Constants;
 import com.hao.app.wx.manage.commons.utils.PropertiesUtils;
 import com.hao.app.wx.manage.service.SysPrivilegeService;

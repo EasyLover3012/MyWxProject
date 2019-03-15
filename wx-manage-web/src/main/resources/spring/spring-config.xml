@@ -19,6 +19,7 @@
 	<bean class="com.hao.app.wx.manage.web.CustomPropertyConfigurer">
 		<property name="locations">
 			<list>
+				<value>classpath:envconfig.properties</value>
 				<value>classpath:config.properties</value>
 			</list>
 		</property>

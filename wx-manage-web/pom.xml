@@ -13,46 +13,40 @@
   <url>http://maven.apache.org</url>
 
   
-  <profiles>
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>env</name>
-					<value>dev</value>
-				</property>
-			</activation>
-			<build>
-				<filters>
-					<filter>src/main/resources/env/dev.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>online</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>env</name>
-					<value>online</value>
-				</property>
-			</activation>
-			<build>
-				<filters>
-					<filter>src/main/resources/env/online.properties</filter>
-				</filters>
-			</build>
-		</profile>
-	</profiles>
+<profiles>
+        <!--本地开发环境-->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+            </properties>
+             <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+         </profile>
+        <!--生产环境-->
+        <profile>
+            <id>online</id>
+            <properties>
+                <profiles.active>online</profiles.active>
+            </properties>
+       </profile>
+    </profiles>
 	
 	<build>
 		<finalName>wx-manage-web</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
+				<excludes>
+                    <exclude>dev/**</exclude>
+                    <exclude>online/**</exclude>
+                </excludes>
 			</resource>
+			<resource>
+				<directory>src/main/resources/${profiles.active}</directory>
+                <filtering>true</filtering>
+            </resource>
 		</resources>
 	</build>
   
