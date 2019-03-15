@@ -3,24 +3,63 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.wx.shj</groupId>
+    <groupId>com.hao.app.wx</groupId>
     <artifactId>wx-manage</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
-  <groupId>com.wx.shj</groupId>
   <artifactId>wx-manage-web</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>wx-manage-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <build>
-    <finalName>wx-manage-web</finalName>
-  </build>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.wx.shj</groupId>
-  		<artifactId>wx-manage-service</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+
+  
+  <profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>env</name>
+					<value>dev</value>
+				</property>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/resources/env/dev.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>online</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>env</name>
+					<value>online</value>
+				</property>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/resources/env/online.properties</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
+	
+	<build>
+		<finalName>wx-manage-web</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+  
+	<dependencies>
+		<dependency>
+			<groupId>com.hao.app.wx</groupId>
+			<artifactId>wx-manage-service</artifactId>
+		</dependency>
+	</dependencies>
 </project>
