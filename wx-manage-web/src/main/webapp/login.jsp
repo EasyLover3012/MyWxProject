@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    <!-- 因为jsp servlet版本问题，2.3及2.3之前的版本isELIgnored默认是true,true即是EL表达式出现在文本或者标签属性时被忽略，当字符串显示在页面。2.3以后的版本默认是false -->
+<%@ page isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

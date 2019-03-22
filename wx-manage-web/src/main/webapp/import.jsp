@@ -1,6 +1,8 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	    <!-- 因为jsp servlet版本问题，2.3及2.3之前的版本isELIgnored默认是true,true即是EL表达式出现在文本或者标签属性时被忽略，当字符串显示在页面。2.3以后的版本默认是false -->
+<%@ page isELIgnored="false"%>
 <%
 	String syspath = request.getContextPath();
 %>
@@ -109,11 +111,14 @@
 		
 		<title></title>
 		
+
 		<!-- EXT -->
-		<link rel="stylesheet" type="text/css" href="<%=syspath%>/ext-4.2.1/resources/ext-theme-neptune/ext-theme-neptune-all-debug.css" />
-		<script type="text/javascript" src="<%=syspath%>/ext-4.2.1/ext-all-debug.js"></script>
-		<script type="text/javascript" src="<%=syspath%>/ext-4.2.1/ext-lang-zh_CN.js"></script>
-	
+		<link rel="stylesheet" type="text/css" href="<%=syspath%>/ext-3.2.1/resources/css/ext-all.css" />
+		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-all.js"></script>
+		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-copy.js"></script>
+		
 		<script type="text/javascript" src="<%=syspath%>/utils/custom.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/utils/myUtil.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/utils/validatorRegex.js"></script>

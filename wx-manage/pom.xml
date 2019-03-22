@@ -236,17 +236,19 @@
 		
 	</dependencies>
 
-	<profiles>
-		<profile>
-			  <modules>
-			      <module>wx-manage-common</module>
-			    <module>wx-manage-pojo</module>
-			    <module>wx-manage-mapper</module>
-			    <module>wx-manage-service</module>
-			    <module>wx-manage-web</module>
-			  </modules>
-		</profile>
-	</profiles>
+<profiles>
+	<profile>
+		<modules>
+		      <module>wx-manage-common</module>
+		    <module>wx-manage-pojo</module>
+		    <module>wx-manage-mapper</module>
+		    <module>wx-manage-service</module>
+		    <module>wx-manage-web</module>
+		  </modules>
+	</profile>
+</profiles>
+			  
+
 
 
   <dependencyManagement>
