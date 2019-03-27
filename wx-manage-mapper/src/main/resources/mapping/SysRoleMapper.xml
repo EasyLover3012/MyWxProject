@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hao.app.wx.manage.mapper.SysRoleMapper">
+ 
+  <resultMap id="BaseResultMap" type="com.hao.app.wx.manage.pojo.SysRole">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, name, intro
+  </sql>
+  
+  <select id="queryAllRoles" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+  </select>
+  
+  <select id="queryByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = ${id} 
+  </select>
+  
+  <update id="updateRole" parameterType="com.hao.app.wx.manage.pojo.SysRole">
+    update sys_role 
+    set 
+    name = #{name,jdbcType=VARCHAR},
+    intro = #{intro,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <insert id="insertRole" parameterType="com.hao.app.wx.manage.pojo.SysRole">
+    insert into sys_role (name, intro)
+    values (
+      	#{name,jdbcType=VARCHAR}, 
+      	#{intro,jdbcType=VARCHAR})
+  </insert>
+  
+  <delete id="deleteRole" parameterType="java.lang.Integer">
+  	delete from sys_role where id = #{id} 
+  </delete>
+  
+</mapper>

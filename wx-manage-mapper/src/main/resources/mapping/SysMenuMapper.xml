@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hao.app.wx.manage.mapper.SysMenuMapper">
+  
+  <resultMap id="BaseResultMap" type="com.hao.app.wx.manage.pojo.SysMenu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent" jdbcType="INTEGER" property="parent" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+ 
+  <sql id="Base_Column_List">
+    id, parent, name, url, sort
+  </sql>
+  
+  <select id="queryMenuByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where parent = #{parentId,jdbcType=INTEGER}
+    order by sort
+  </select>
+  
+  <select id="queryByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu where id = #{menuId,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="insertMenu" parameterType="com.hao.app.wx.manage.pojo.SysMenu">
+    insert into sys_menu (
+    	parent, name, url, sort)
+    values (
+    	#{parent,jdbcType=INTEGER}, 
+      	#{name,jdbcType=VARCHAR}, 
+      	#{url,jdbcType=VARCHAR}, 
+      	#{sort,jdbcType=INTEGER})
+  </insert>
+  
+  <update id="updateMenu" parameterType="com.hao.app.wx.manage.pojo.SysMenu">
+    update sys_menu
+    set
+        parent = #{parent,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        url = #{url,jdbcType=VARCHAR},
+        sort = #{sort,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <delete id="deleteMenu" parameterType="java.lang.Integer">
+  	delete from sys_menu 
+  	where id = #{menuId} 
+  	or parent = #{menuId}
+  </delete>
+  
+  
+</mapper>

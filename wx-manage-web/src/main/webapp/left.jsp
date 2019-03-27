@@ -28,9 +28,9 @@
 				leaf : false,
 				checked : null
 			},
-		//	loader : new Ext.tree.TreeLoader( {
-			//	dataUrl : "getSysMenuTree.do"
-		//	})
+			loader : new Ext.tree.TreeLoader( {
+				dataUrl : "getSysMenuTree.do"
+			})
 		});
 		//根节点展开
 		tree.getRootNode().expand();
