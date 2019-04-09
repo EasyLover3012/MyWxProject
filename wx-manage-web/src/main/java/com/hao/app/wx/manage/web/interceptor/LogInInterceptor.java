@@ -41,7 +41,7 @@ public class LogInInterceptor implements HandlerInterceptor {
 		if(currentUser != null && StringUtils.isNotBlank(currentUser.getName())){
 			return true;
 		}
-		logger.error("Not Login!");
+		logger.info("Not Login!");
 		
 		if (!(request.getHeader("accept").contains("application/json") 
 				|| (request.getHeader("X-Requested-With") != null && request.getHeader("X-Requested-With").contains("XMLHttpRequest") ))) {

@@ -59,6 +59,18 @@
 				width:300px;
 			}
 			
+			.windowDiv table select{
+				padding: 3px;
+				width:300px;
+			}
+			
+			.windowDiv table textarea{
+				padding: 3px;
+				width:300px;
+			}
+			
+			
+			
 			.Mytable{
 				padding:5px;
 				border: 0;

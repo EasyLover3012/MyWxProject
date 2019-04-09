@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hao.app.wx.manage.mapper.DealerMapper" >
+
+  <resultMap id="BaseResultMap" type="com.hao.app.wx.manage.pojo.Dealer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dealer_name" property="dealerName" jdbcType="VARCHAR" />
+    <result column="wx_id" property="wxId" jdbcType="VARCHAR" />
+    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+    <result column="highlevelid" property="highlevelid" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+   </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, dealer_name, wx_id, telphone, highlevelid, address
+  </sql>
+  
+   <select id="getAllDealer"  resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM sys_dealer
+   
+  </select>
+
+  <select id="queryCount" parameterType="com.hao.app.wx.manage.commons.entity.param.DealerQueryParam" resultType="java.lang.Integer">
+    SELECT COUNT(1)
+    FROM sys_dealer
+    WHERE 1 = 1
+    <if test="dealerName != null and dealerName != ''">
+         and (dealer_name like CONCAT('%',#{dealerName},'%'))
+    </if>
+  </select>
+
+  <select id="queryPageList" parameterType="com.hao.app.wx.manage.commons.entity.param.DealerQueryParam" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM sys_dealer
+    WHERE 1 = 1
+    <if test="dealerName != null and dealerName != ''">
+         and (dealer_name like CONCAT('%',#{dealerName},'%'))
+    </if>
+    order by #{sortStr}
+    limit #{pageStart},#{pageLimit}
+  </select>
+
+  <select id="getByDealerName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM sys_dealer
+    WHERE dealer_name = #{dealerName}
+    limit 1
+  </select>
+  
+  
+   <delete id="delDealerById" >
+    DELETE 
+    FROM sys_dealer
+    WHERE id = #{dealerNameId}
+   </delete>
+
+  <insert id="insert" parameterType="com.hao.app.wx.manage.pojo.Dealer" >
+    insert into sys_dealer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dealerName != null" >
+        dealer_name,
+      </if>
+      <if test="wxId != null" >
+        wx_id,
+      </if>
+      <if test="telphone != null" >
+        telphone,
+      </if>
+      <if test="highlevelid != null" >
+        highlevelid,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dealerName != null" >
+        #{dealerName,jdbcType=VARCHAR},
+      </if>
+      <if test="wxId != null" >
+        #{wxId,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="highlevelid != null" >
+        #{highlevelid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+     
+    </trim>
+  </insert>
+  
+  <update id="update" parameterType="com.hao.app.wx.manage.pojo.Dealer">
+    update sys_dealer 
+    set 
+    dealer_name = #{dealerName,jdbcType=VARCHAR},
+    wx_id = #{wxId,jdbcType=VARCHAR},
+    telphone = #{telphone,jdbcType=VARCHAR},
+    highlevelid = #{highlevelid,jdbcType=INTEGER},
+    address = #{address,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+
+
+</mapper>
