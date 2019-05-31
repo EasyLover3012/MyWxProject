@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hao.app.wx.manage.mapper.PrincessOrderMapper" >
+
+  <resultMap id="BaseResultMap" type="com.hao.app.wx.manage.pojo.PrincessOrder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="order_time" property="orderTime" jdbcType="TIMESTAMP" />
+    <result column="shop_name_id" property="shopNameId" jdbcType="INTEGER" />
+     <result column="customer" property="shopName" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="customer_phone" property="customerPhone" jdbcType="VARCHAR" />
+    <result column="customer_address" property="customerAddress" jdbcType="VARCHAR" />
+    <result column="buy_things" property="buyThings" jdbcType="VARCHAR" />
+    <result column="sell_code" property="sellCode" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="profit" property="profit" jdbcType="INTEGER" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, order_time, shop_name_id, customer, customer_phone, customer_address, buy_things, sell_code, 
+    remark,profit
+  </sql>
+
+  <select id="queryCount" parameterType="com.hao.app.wx.manage.commons.entity.param.PrincessOrderQueryParam" resultType="java.lang.Integer">
+    SELECT COUNT(1)
+    FROM tb_princess_order
+    WHERE 1 = 1 and #{startTime}&gt;=order_time and #{endTime}&gt;=order_time
+    <if test="shopNameId != 0">
+         and shop_name_id=#{shopNameId}
+    </if>
+     <if test="sellCode != null and sellCode != ''">
+         and (sell_code like CONCAT('%',#{sellCode},'%'))
+    </if>
+    <if test="customerPhone != null and customerPhone != ''">
+         and (customer_phone =#{customerPhone})
+    </if>
+    <if test="sortStr != null and sortStr != ''">
+         order by ${sortStr}
+    </if>
+    
+    limit #{pageStart},#{pageLimit}
+  </select>
+
+  <select id="queryPageList" parameterType="com.hao.app.wx.manage.commons.entity.param.PrincessOrderQueryParam" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM tb_princess_order
+    WHERE 1 = 1 and #{startTime}&gt;=order_time and #{endTime}&gt;=order_time
+    <if test="shopNameId != 0">
+         and shop_name_id=#{shopNameId}
+    </if>
+     <if test="sellCode != null and sellCode != ''">
+         and (sell_code like CONCAT('%',#{sellCode},'%'))
+    </if>
+    <if test="customerPhone != null and customerPhone != ''">
+         and (customer_phone =#{customerPhone})
+    </if>
+    <if test="sortStr != null and sortStr != ''">
+         order by ${sortStr}
+    </if>
+    
+    limit #{pageStart},#{pageLimit}
+  </select>
+
+ 
+
+</mapper>
