@@ -126,7 +126,7 @@
 
 		<!-- EXT -->
 		<link rel="stylesheet" type="text/css" href="<%=syspath%>/ext-3.2.1/resources/css/ext-all.css" />
-		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-base.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-all.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-lang-zh_CN.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/ext-copy.js"></script>
@@ -134,6 +134,11 @@
 		<script type="text/javascript" src="<%=syspath%>/utils/custom.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/utils/myUtil.js"></script>
 		<script type="text/javascript" src="<%=syspath%>/utils/validatorRegex.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="<%=syspath%>/ext-3.2.1/DateTime/Spinner.css"/>
+	<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/DateTime/Spinner.js"></script>
+	<script type="text/javascript" src="<%=syspath%>/ext-3.2.1/DateTime/SpinnerField.js"></script>
+        <script type="text/javascript" src="<%=syspath%>/ext-3.2.1/DateTime/DateTimeField.js"></script>
 	
 		
 		<script type="text/javascript">
